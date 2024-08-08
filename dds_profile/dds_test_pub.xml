@@ -1,0 +1,30 @@
+<profiles>
+    <transport_descriptors>
+        <transport_descriptor>
+            <transport_id>fast_dds_transport</transport_id>
+            <type>UDPv4</type>
+            <interfaceWhiteList>
+                <address>111.222.0.20</address>
+            </interfaceWhiteList>
+        </transport_descriptor>
+    </transport_descriptors>
+    <participant profile_name="image_publisher_profile">
+        <rtps>
+            <userTransports>
+                <transport_id>fast_dds_transport</transport_id>
+            </userTransports>
+            <propertiesPolicy>
+                <properties>
+                    <property>
+                        <name>dds.transport.UDPv4.builtin.send_socket_buffer_size</name>
+                        <value>8388608</value>
+                    </property>
+                    <property>
+                        <name>dds.transport.UDPv4.builtin.recv_socket_buffer_size</name>
+                        <value>8388608</value>
+                    </property>
+                </properties>
+            </propertiesPolicy>
+        </rtps>
+    </participant>
+</profiles>
